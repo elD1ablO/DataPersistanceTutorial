@@ -13,6 +13,10 @@ public class MainGameManager : MonoBehaviour
 
     public string playerName;
     public InputField nameInput;
+
+    public int bestScore;
+    public string bestPlayerName;
+
     private void Awake()
     {
         if (instance != null)
@@ -22,35 +26,34 @@ public class MainGameManager : MonoBehaviour
         }
         instance = this;
         DontDestroyOnLoad(gameObject);
-        
+        LoadNameScore();
     }
 
     public void PlayerNameInput()
     {
         playerName = nameInput.text;
-        currentPlayer.text = "Player: " + playerName;
-        Debug.Log("name- " + playerName);
+        currentPlayer.text = "Player: " + playerName;        
     }
 
-    /*[System.Serializable]
+    [System.Serializable]
     class SaveData
     {
-        public string lastPlayerName;
-        public string lastScore;
+        public string _bestPlayerName;
+        public int _bestScore;
     }
 
     public void SaveNameScore()
     {
         SaveData data = new SaveData();
-        data.lastPlayerName = playerName;
-        data.lastScore =
+        data._bestPlayerName = playerName;
+        data._bestScore = bestScore;
 
         string json = JsonUtility.ToJson(data);
 
         File.WriteAllText(Application.persistentDataPath + "/savefile.json", json);
     }
 
-    public void LoadColor()
+    public void LoadNameScore()
     {
         string path = Application.persistentDataPath + "/savefile.json";
         if (File.Exists(path))
@@ -58,8 +61,9 @@ public class MainGameManager : MonoBehaviour
             string json = File.ReadAllText(path);
             SaveData data = JsonUtility.FromJson<SaveData>(json);
 
-            teamColor = data.teamColor;
+            bestPlayerName = data._bestPlayerName;
+            bestScore = data._bestScore;
         }
     }
-    */
+    
 }

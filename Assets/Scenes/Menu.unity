@@ -428,7 +428,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 925346d3e940a3c4c8ad1ae4c77bd4fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentPlayer: {fileID: 0}
+  currentPlayer: {fileID: 1699447777}
   playerName: 
   nameInput: {fileID: 58369180}
 --- !u!4 &283639705

@@ -9,7 +9,6 @@ using UnityEditor;
 public class MenuHandler : MonoBehaviour
 {
     
-
     public void StartNew()
     {
         SceneManager.LoadScene(1);
